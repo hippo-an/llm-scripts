@@ -77,6 +77,7 @@ def chat(message, history):
 
 def handle_tool_call(message):
     tool_call = message.tool_calls[0]
+    print(f"Tool call: {tool_call.json()}")
     arguments = json.loads(tool_call.function.arguments)
     city = arguments.get('destination')
     price = get_ticket_price(city)
